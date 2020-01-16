@@ -36,11 +36,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 text-center">
-				<img src="../images/brand.png" alt="logo Frío Control" width="250">
+				<img src="../images/logo/logo_negro_desc.png" alt="logo Business Expert Process" width="250">
 
 				<h1 style="color:#000;">¡Gracias por escribirnos!</h1>
 
-				<img src="../images/icons/check.png" alt="Recibido" width="250">
+				<img src="../images/check.png" alt="Recibido" width="250">
 
 				<h2 class="gracias-texto">
 					Tu información ha sido recibida por unos de nuestros ejecutivos, 
