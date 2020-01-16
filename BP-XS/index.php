@@ -7,20 +7,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>BP-XS-Business Process Experts</title>
 
-	<meta name="description"
-		content="Business Process Experts, BP-Xs, somos especialistas en apoyar a nuestros clientes en la creación, operación, crecimiento y control de empresas, productos y servicios.">
+	<meta name="description" content="Business Process Experts, BP-Xs, somos especialistas en apoyar a nuestros clientes en la creación, operación, crecimiento y control de empresas, productos y servicios.">
 	<meta name="keywords" content="">
 	<!-- Bootstrap CSS -->
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-		integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<!-- Google Fonts -->
-	<link
-		href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic'
-		rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
 	<!-- Font Awesome -->
-	<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet'
-		type='text/css'>
+	<link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 	<!-- Style -->
 	<link href='style.css' rel='stylesheet' type='text/css'>
 
@@ -53,8 +48,7 @@
 
 	<!-- Inicio -->
 	<div class="section hero big ">
-		<div class="background-image"
-			style="background: url(images/bigslide.jpg) no-repeat center center; background-size: cover;"></div>
+		<div class="background-image" style="background: url(images/bigslide.jpg) no-repeat center center; background-size: cover;"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
@@ -88,8 +82,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-5">
-						<div class="background-image mobile"
-							style="background: url(images/meet.jpg) no-repeat center center; background-size: cover;">
+						<div class="background-image mobile" style="background: url(images/meet.jpg) no-repeat center center; background-size: cover;">
 						</div>
 					</div>
 				</div>
@@ -215,13 +208,13 @@
 
 				<div class="col-md-6">
 					<h2 class="section-title">Contacto</h2>
-					<form id="contactForm" method="post" class="form" action="validacion/validation.php" onsubmit="return validarContacto();"> 
-						<input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required maxlength="10"/>
+					<form id="contactForm" method="post" class="form" action="validacion/validation.php" onsubmit="return validarContacto();">
+						<input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required maxlength="10" />
 						<div id="error-name"></div>
 
 						<input class="form-control" id="email" name="email" placeholder="Correo" type="text" required />
 						<div id="error-email"></div>
-						
+
 						<input class="form-control" id="phone" name="phone" placeholder="Teléfono" type="text" required />
 						<div id="error-phone"></div>
 
@@ -239,21 +232,22 @@
 
 				<div class="col-md-6">
 					<h2 class="section-title">Unete a nuestro equipo</h2>
-					<form id="contactForm2" data-toggle="validator" method="post" class="form" enctype="multipart/form-data" action="validacion/validation2.php" onsubmit="return formJoin();" >
-						<input class="form-control" id="name2" name="name2" placeholder="Nombre" type="text"  />
+					<form id="contactForm2" data-toggle="validator" method="post" class="form" enctype="multipart/form-data" action="validacion/validation2.php" onsubmit="return formJoin();">
+						<input class="form-control" id="name2" name="name2" placeholder="Nombre" type="text" />
 						<div id="error-name2"></div>
 
-						<input class="form-control" id="email2" name="email2" placeholder="Correo" type="email"/>
+						<input class="form-control" id="email2" name="email2" placeholder="Correo" type="email" />
 						<div id="error-email2"></div>
 
-						<input class="form-control" id="phone2" name="phone2" placeholder="Teléfono" type="text"  />
+						<input class="form-control" id="phone2" name="phone2" placeholder="Teléfono" type="text" />
 						<div id="error-phone2"></div>
 
 						<label for="exampleInputFile">Adjunta tu CV aquí</label>
-						<input type="file" name="adjunto" id="fileCV" accept=".pdf,.jpg,.png,.docx" multiple required>
-						
+						<input type="file" name="adjunto" id="fileCV" accept=".pdf,.jpg,.png,.docx" multiple require>
+
 						<!-- audio/*,video/*,image/* -->
 						<input type="submit" value="Enviar" name="enviar2" class="btn btn-primary" id="button">
+						<div class="g-recaptcha" data-sitekey="6LcYHM8UAAAAAEIvzUV8BrhDdsWWjHkOr2a6837p"></div>
 						<div id="msgSubmit" class="h3 text-center hidden"></div>
 						<div class="clearfix"></div>
 					</form>
@@ -290,12 +284,10 @@
 	</div>
 	<!--/.section -->
 
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>	<!-- jQuery -->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script> <!-- jQuery -->
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<!-- Bootstrap JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		function validarContacto() {
 			var name = document.getElementById('name').value;
@@ -307,11 +299,11 @@
 			var error_phone = document.getElementById('error-phone');
 
 			var errores_generales = document.getElementById('errores-generales');
-			
+
 			var exp = /.+@.+\..+/;
 
 			if (name == "" || email == "" || phone == "") {
-				errores_generales.innerHTML = 
+				errores_generales.innerHTML =
 					`
 						<div class="alert alert-danger alert-dismissible" role="alert">
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -319,26 +311,22 @@
 						</div>
 					`;
 				return false;
-			}
-
-			else if(!exp.test(email)){
-				error_email.innerHTML=`
+			} else if (!exp.test(email)) {
+				error_email.innerHTML = `
 					<div class="alert alert-danger alert-dismissible" role="alert">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<strong>Error</strong> email no válido
 					</div>
 				`;
 				return false;
-			}
-			
-			else if(isNaN(phone)){
-				error_phone.innerHTML = 
+			} else if (isNaN(phone)) {
+				error_phone.innerHTML =
 					`
 						<div class="alert alert-danger alert-dismissible" role="alert">
 							 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 								<strong>Error</strong> Solo números en este campo
 							</div>
-					`; 
+					`;
 				return false;
 			}
 		}
@@ -355,44 +343,40 @@
 			var error_phone2 = document.getElementById('error-phone2');
 
 			var errores_generales2 = document.getElementById('errores-generales2');
-			
+
 			var exp = /.+@.+\..+/;
 
 			if (name2 == "" || email2 == "" || phone2 == "") {
-				errores_generales2.innerHTML = 
+				errores_generales2.innerHTML =
 					`
 					<div class="alert alert-danger alert-dismissible" role="alert">
 						<button type="button" class="close" data-dismiss="alert" aria -label="Close"><span aria-hidden="true">&times;</span></button>
 						<strong>Error</strong> todos los campos son obligatorios.
 					<div>
-					`; 
+					`;
 				return false;
-			}
-
-			else if(!exp.test(email2)){
-				error_email2.innerHTML=`
+			} else if (!exp.test(email2)) {
+				error_email2.innerHTML = `
 					<div class="alert alert-danger alert-dismissible" role="alert">
 					 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<strong>Error</strong> email no válido
 					</div>
-				`; 
+				`;
 				return false;
-			}
-			
-			else if(isNaN(phone2)){
-				error_phone2.innerHTML = 
+			} else if (isNaN(phone2)) {
+				error_phone2.innerHTML =
 					`
 					<div class="alert alert-danger alert-dismissible" role="alert">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<strong>Error</strong> Solo números en este campo
 					</div>
-					`;  
+					`;
 				return false;
 			}
 		}
 	</script>
 
-	
+
 
 
 </body>
