@@ -209,23 +209,34 @@
 				<div class="col-md-6">
 					<h2 class="section-title">Contacto</h2>
 					<form id="contactForm" method="post" class="form" action="validacion/validation.php" onsubmit="return validarContacto();">
-						<input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required maxlength="10" />
+						<input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required maxlength="100" minlength="2" />
 						<div id="error-name"></div>
 
 						<input class="form-control" id="email" name="email" placeholder="Correo" type="text" required />
 						<div id="error-email"></div>
 
-						<input class="form-control" id="phone" name="phone" placeholder="Teléfono" type="text" required />
+						<input class="form-control" id="phone" name="phone" placeholder="Teléfono" type="text" required maxlength="18" minlength="8" />
 						<div id="error-phone"></div>
 
 						<input type="submit" value="Enviar" name="enviar" class="btn btn-primary" id="button">
 
-						<div class="g-recaptcha" data-sitekey="6LcYHM8UAAAAAEIvzUV8BrhDdsWWjHkOr2a6837p"></div>
+						<div class="g-recaptcha" style="margin-top:15px;" data-sitekey="6LcYHM8UAAAAAEIvzUV8BrhDdsWWjHkOr2a6837p"></div>
 
 
 						<div id="msgSubmit" class="h3 text-center hidden"></div>
 						<div class="clearfix"></div>
 					</form>
+					<?php
+					if (isset($_GET['error']) && $_GET['error'] == "Captcha Inválida") :
+
+					?>
+
+						<div class="alert alert-danger alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<strong>Error</strong> Debes rellenar la casilla de ReCaptcha.
+						</div>
+
+					<?php endif; ?>
 				</div>
 
 
@@ -233,24 +244,36 @@
 				<div class="col-md-6">
 					<h2 class="section-title">Unete a nuestro equipo</h2>
 					<form id="contactForm2" data-toggle="validator" method="post" class="form" enctype="multipart/form-data" action="validacion/validation2.php" onsubmit="return formJoin();">
-						<input class="form-control" id="name2" name="name2" placeholder="Nombre" type="text" />
+						<input class="form-control" id="name2" name="name2" placeholder="Nombre" type="text" maxlength="100" minlength="2" required />
 						<div id="error-name2"></div>
 
-						<input class="form-control" id="email2" name="email2" placeholder="Correo" type="email" />
+						<input class="form-control" id="email2" name="email2" placeholder="Correo" type="email" required />
 						<div id="error-email2"></div>
 
-						<input class="form-control" id="phone2" name="phone2" placeholder="Teléfono" type="text" />
+						<input class="form-control" id="phone2" name="phone2" placeholder="Teléfono" type="text" maxlength="18" minlength="8" required />
 						<div id="error-phone2"></div>
 
 						<label for="exampleInputFile">Adjunta tu CV aquí</label>
-						<input type="file" name="adjunto" id="fileCV" accept=".pdf,.jpg,.png,.docx" multiple require>
+						<input type="file" name="adjunto" id="fileCV" accept=".pdf,.jpg,.png,.docx" multiple required>
 
 						<!-- audio/*,video/*,image/* -->
 						<input type="submit" value="Enviar" name="enviar2" class="btn btn-primary" id="button">
-						<div class="g-recaptcha" data-sitekey="6LcYHM8UAAAAAEIvzUV8BrhDdsWWjHkOr2a6837p"></div>
+						<div class="g-recaptcha" style="margin-top:15px;" data-sitekey="6LcYHM8UAAAAAEIvzUV8BrhDdsWWjHkOr2a6837p"></div>
 						<div id="msgSubmit" class="h3 text-center hidden"></div>
 						<div class="clearfix"></div>
 					</form>
+
+					<?php
+					if (isset($_GET['error2']) && $_GET['error2'] == "Captcha Inválida") :
+
+					?>
+
+						<div class="alert alert-danger alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<strong>Error</strong> Debes rellenar la casilla de ReCaptcha.
+						</div>
+
+					<?php endif; ?>
 				</div>
 
 			</div>
@@ -293,6 +316,7 @@
 			var name = document.getElementById('name').value;
 			var email = document.getElementById('email').value;
 			var phone = document.getElementById('phone').value;
+			var response = grecaptcha.getResponse();
 
 			var error_name = document.getElementById('error-name');
 			var error_email = document.getElementById('error-email');
@@ -328,6 +352,9 @@
 							</div>
 					`;
 				return false;
+			} else if (response.length == 0) {
+				alert("Captcha no verificado");
+				return false;
 			}
 		}
 
@@ -337,6 +364,7 @@
 			var email2 = document.getElementById('email2').value;
 			var phone2 = document.getElementById('phone2').value;
 			var fileCV = document.getElementById('fileCV');
+			
 
 			var error_name2 = document.getElementById('error-name2');
 			var error_email2 = document.getElementById('error-email2');

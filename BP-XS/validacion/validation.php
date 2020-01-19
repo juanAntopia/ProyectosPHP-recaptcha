@@ -1,12 +1,5 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'PHPMailer/Exception.php';
-require 'PHPMailer/PHPMailer.php';
-require 'PHPMailer/SMTP.php';
-
 require_once 'init.php';
 $response = $recaptcha->verify($_POST['g-recaptcha-response']);
 
@@ -56,54 +49,51 @@ if($response->isSuccess()){
         }
 
         else {
-            $mail = new PHPMailer();
-            $mail->CharSet = 'UTF-8';
-            try{
-                //server settings
-                $mail->SMTPDebug = false;
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com; smtp.live.com';
-                $mail->SMTPAuth = true;
-                $mail->Username = "businessprocessexpertsbpxs@gmail.com";
-                $mail->Password = "Admin12345678";
-                $mail->SMTPSecure = 'tls';
-                $mail->Port = 587;
+            //asunto
+            $asunto = "Mensaje de la página web sección - Contacto";
 
-                //recipioents
-                $mail->setFrom($email, $name);
-                $mail->addAddress('juan_27angel@hotmail.com', 'juan');
+            //destinatario
+            $destino = "juan_27angel@hotmail.com";
 
-                //content
-                $mail->isHTML(true);
-                $mail->Subject = 'Mensaje enviado';
-                $mail->Body ='
-                    <p>
+            //cabeceras para validar el formato HTML
+            $headers = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= "Content-type: text/html; charset=UTF-8\r\n";
+
+            //contenido del mensaje
+            $contenido =  '
+		<p>
 						<h1>Mensaje de la página web</h1>
-						
+						<span></span>
 						
 					</p>
 					
 					<p style="font-size:20px;">
-						Puedes ponerte en contacto con <strong>'.$name.'</strong> al correo: <strong>'.$email.' </strong>
-						o al teléfono: <strong>'.$phone. '</strong>
+						Puedes ponerte en contacto con <strong>' . $name . '</strong> al correo: <strong>' . $email . ' </strong>
+						o al teléfono: <strong>' . $phone . '</strong>
 					</p>
-                ';
+		';
 
-                $mail->SMTPOptions = array('ssl' => array(
-                        'verify_peer' => false,
-                        'verify_peer_name' => false,
-                        'allow_self_signed' => true
-                    )
-                );
+            //enviar correo
+            $envio = mail($destino, $asunto, $contenido, $headers);
 
-                if($mail->send()){
-                    header("Location: gracias.php");
-                }else{
-                    header("Location:../index.php?error=*Error al enviarlo, Inténtelo de nuevo en unos momentos");
-                }
-                
-            }catch(Exception $e){
-                echo $e;
+            if ($envio) {
+                header("Location:gracias.php");
+                //Enviando autorespuesta
+                $pwf_header = "juan_27angel@hotmail.com\n"
+                    .  "Reply-to: juan_27angel@hotmail.com \n";
+                $pwf_asunto = "BP-XS Confirmación";
+                $pwf_dirigido_a = "$email";
+                $pwf_mensaje = "$name Gracias por dejarnos su mensaje desde nuestro sitio web \n"
+                    . "Su mensaje ha sido recibido satisfactoriamente \n"
+                    . "Nos pondremos en contacto lo antes posible a su e-mail: $email o su telefono $telefono \n"
+                    . "\n"
+                    . "\n"
+                    . "-----------------------------------------------------------------"
+                    . "Favor de NO responder este e-mail ya que es generado Automaticamente.\n"
+                    . "Atte: DREFSA Mtto. de Drenaje Industrial \n";
+                @mail($pwf_dirigido_a, $pwf_asunto, $pwf_mensaje, $pwf_header);
+            } else {
+                header("Location:../index.php?error=Inténtelo de nuevo en unos momentos");
             }
         }
 

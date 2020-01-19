@@ -1,18 +1,9 @@
 <?php
-//librerías de PHPMailer
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'PHPMailer/Exception.php';
-require 'PHPMailer/PHPMailer.php';
-require 'PHPMailer/SMTP.php';
 
 require_once 'init.php';
-
 $response = $recaptcha->verify($_POST['g-recaptcha-response']);
 
-if($response->isSuccess()){
-
+if ($response->isSuccess()) {
     //revisar si existe el botón
     if (isset($_POST['enviar2'])) {
         //recoger los datos
@@ -20,94 +11,95 @@ if($response->isSuccess()){
         $email = trim($_POST['email2']);
         $phone = trim($_POST['phone2']);
         $file = $_FILES['adjunto'];
-    
+
         //expresiones regulares
         $exp_string = "/^[a-záéóóúàèìòùäëïöüñ\s]+$/i";
         $exp_int = "/^[0-9]/";
-    
+
         $expr1_test = preg_match($exp_string, $name);
         $expr2_test = preg_match($exp_int, $phone);
-    
+
         //validación de todos los campos
         if (empty($name) || empty($email) || empty($phone)) {
             header("Location: ../index.php?faltan_valores=Los campos no pueden estar vacíos");
         }
-    
+
         //validación del campo nombre
         elseif ($expr1_test == false) {
             header("Location: ../index.php?error=Nombre no válido");
-        } 
-        
-        elseif (strlen($name) > 100) {
+        } elseif (strlen($name) > 100) {
             header("Location: ../index.php?error=Máximo 100 caracteres");
         }
-    
+
         //validación campo email 
         elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             header("Location: ../index.php?error= Email no valido");
         }
-    
+
         //validación campo teléfono
         elseif ($expr2_test == false) {
             header("Location: ../index.php?error= Solo números en este campo");
-        } 
-        
-        elseif (strlen($phone) > 15) {
+        } elseif (strlen($phone) > 15) {
             header("Location: ../index.php?error= Máximo 15 dígitos");
-        } 
-        
-        else {
-            $mail = new PHPMailer();
-            $mail->CharSet = 'UTF-8';
-            try {
-                //server settings
-                $mail->SMTPDebug = false;
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com; smtp.live.com';
-                $mail->SMTPAuth = true;
-                $mail->Username = "businessprocessexpertsbpxs@gmail.com";
-                $mail->Password = "Admin12345678";
-                $mail->SMTPSecure = 'tls';
-                $mail->Port = 587;
+        } else {
+            $nameFile = $_FILES['adjunto']['name'];
+            $sizeFile = $_FILES['adjunto']['size'];
+            $typeFile = $_FILES['adjunto']['type'];
+            $tempFile = $_FILES["adjunto"]["tmp_name"];
+            $fecha = time();
+            $fechaFormato = date("j/n/Y", $fecha);
 
-                //recipioents
-                $mail->setFrom($email, $name);
-                $mail->addAddress('juan_27angel@hotmail.com', 'juan');
+            $correoDestino = "juan_27angel@hotmail.com";
+            //, contacto@7mas1.com
+            //asunto del correo
+            $asunto = "Enviado por " . $name . "  sección - Únete a nuestro equipo";
 
-                //content
-                $mail->isHTML(true);
-                $mail->Subject = 'Mensaje enviado';
-                $mail->Body = '
-                    <p>
-						<h1>Mensaje de la página web</h1>
-						
-						
-					</p>
-					
-					<p style="font-size:20px;">
-						Puedes ponerte en contacto con <strong>' . $name . '</strong> al correo: <strong>' . $email . ' </strong>
-						o al teléfono: <strong>' . $phone . '</strong>
-					</p>
-                ';
-                $mail->addAttachment($file['tmp_name'], $file['name']);
 
-                $mail->SMTPOptions = array(
-                    'ssl' => array(
-                        'verify_peer' => false,
-                        'verify_peer_name' => false,
-                        'allow_self_signed' => true
-                    )
-                );
+            // -> mensaje en formato Multipart MIME
+            $cabecera = "MIME-VERSION: 1.0\r\n";
+            $cabecera .= "Content-type: multipart/mixed;";
+            //$cabecera .="boundary='=P=A=L=A=B=R=A=Q=U=E=G=U=S=T=E=N='"
+            $cabecera .= "boundary=\"=C=T=E=C=\"\r\n";
+            $cabecera .= "From: {$email}";
 
-                if ($mail->send()) {
-                    header("Location: gracias.php");
-                } else {
-                    header("Location:../index.php?error=*Error al enviarlo, Inténtelo de nuevo en unos momentos");
-                }
-            } catch (Exception $e) {
-                echo $e;
+            //Primera parte del cuerpo del mensaje
+            $cuerpo = "--=C=T=E=C=\r\n";
+            $cuerpo .= "Content-type:text/plain; charset=iso-8859-1\r\n";
+            $cuerpo .= "charset=utf-8\r\n";
+            $cuerpo .= "Content-Transfer-Encoding: 7bit\r\n";
+            $cuerpo .= "\r\n"; // línea vacía
+            $cuerpo .= "Correo enviado por: " . $name;
+            $cuerpo .= " con fecha: " . $fechaFormato . "\r\n";
+            $cuerpo .= "Email: " . $email . "\r\n";
+            $cuerpo .= "\r\n"; // línea vacía
+
+            // -> segunda parte del mensaje (archivo adjunto)
+            //    -> encabezado de la parte
+            $cuerpo .= "--=C=T=E=C=\r\n";
+            $cuerpo .= "Content-Type: application/octet-stream; ";
+            $cuerpo .= "name=" . $nameFile . "\r\n";
+            $cuerpo .= "Content-Transfer-Encoding: base64\r\n";
+            $cuerpo .= "Content-Disposition: attachment; ";
+            $cuerpo .= "filename=" . $nameFile . "\r\n";
+            $cuerpo .= "\r\n"; // línea vacía
+
+            $fp = fopen($tempFile, "rb");
+            $file = fread($fp, $sizeFile);
+            $file = chunk_split(base64_encode($file));
+
+            $cuerpo .= "$file\r\n";
+            $cuerpo .= "\r\n"; // línea vacía
+            // Delimitador de final del mensaje.
+            $cuerpo .= "--=C=T=E=C=--\r\n";
+
+            //Enviar el correo
+            if (mail($correoDestino, $asunto, $cuerpo, $cabecera)) {
+                header("Location:gracias.php");
+            } else {
+                header("Location:../index.php?error=Inténtelo de nuevo en unos momentos");
             }
         }
     }
+} else {
+    header('Location: ../index.php?error2=Captcha Inválida');
 }
-
