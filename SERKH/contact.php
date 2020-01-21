@@ -1,36 +1,48 @@
 <?php
- 
 
-if($_POST) {
-    $nombre = "";
-    $asunto = "";
-    $mail = "";
-    $mensaje = "";
+if(isset($_POST['submit'])){
+    //recoger los datos
+    $nombre = trim($_POST['nombre']);
+    $asunto = trim($_POST['asunto']);
+    $mail = trim($_POST['mail']);
+    $mensaje = trim($_POST['mensaje']);
 
-     
-    if(isset($_POST['nombre'])) {
-      $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-      $email_to = "x_petex@hotmail.com";
+    //expresiones regulares
+    $exp_string = "/^[a-záéóóúàèìòùäëïöüñ\s]+$/i";
 
-    }
-     
-    if(isset($_POST['mail'])) {
-        $mail = str_replace(array("\r", "\n", "%0a", "%0d"), '', $_POST['mail']);
-        $mail = filter_var($mail, FILTER_VALIDATE_EMAIL);
-    }
-     
-    if(isset($_POST['asunto'])) {
-        $asunto = filter_var($_POST['asunto'], FILTER_SANITIZE_STRING);
+    $expr1_test = preg_match($exp_string, $nombre);
+    //validación de todos los campos
+    if (empty($nombre) || empty($mail) || empty($mensaje) || empty($asunto)) {
+        header("Location: index.php?faltan_valores=Los campos no pueden estar vacíos");
     }
 
-    if(isset($_POST['mensaje'])) {
-        $mensaje = htmlspecialchars($_POST['mensaje']);
+    //validación del campo nombre
+    elseif ($expr1_test == false) {
+        header("Location: index.php?error=Nombre no válido");
+    } 
+    
+    elseif (strlen($nombre) > 100) {
+        header("Location: index.php?error=Máximo 100 caracteres");
     }
 
-     
-    $headers  = 'MIME-Version: 1.0' . "\r\n"
-    .'Content-type: text/html; charset=utf-8' . "\r\n"
-    .'From: ' . $mail. "\r\n";
-    $email_subject = "Contacto desde el sitio web";
- 
-?>
+    //validación del campo asunto
+    elseif (strlen($asunto)>50) {
+        header("Location: index.php?error=Máximo 50 caracteres");
+    } 
+    
+    //validación campo email 
+    elseif (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+        header("Location: index.php?error= Email no valido");
+    }
+
+    elseif (strlen($mensaje) > 500) {
+        header("Location: index.php?error=Máximo 500 caracteres");
+    }
+
+    else{
+        echo $nombre;
+        echo $asunto;
+        echo $mail;
+        echo $mensaje;
+    }
+}
