@@ -220,7 +220,7 @@
 
 						<input type="submit" value="Enviar" name="enviar" class="btn btn-primary" id="button">
 
-						<div class="g-recaptcha" style="margin-top:15px;" data-sitekey="6LcYHM8UAAAAAEIvzUV8BrhDdsWWjHkOr2a6837p"></div>
+						<div class="g-recaptcha" style="margin-top:15px;" data-sitekey=""></div>
 
 
 						<div id="msgSubmit" class="h3 text-center hidden"></div>
@@ -258,7 +258,7 @@
 
 						<!-- audio/*,video/*,image/* -->
 						<input type="submit" value="Enviar" name="enviar2" class="btn btn-primary" id="button">
-						<div class="g-recaptcha" style="margin-top:15px;" data-sitekey="6LcYHM8UAAAAAEIvzUV8BrhDdsWWjHkOr2a6837p"></div>
+						<div class="g-recaptcha" style="margin-top:15px;" data-sitekey=""></div>
 						<div id="msgSubmit" class="h3 text-center hidden"></div>
 						<div class="clearfix"></div>
 					</form>
