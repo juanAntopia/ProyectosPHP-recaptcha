@@ -8,8 +8,8 @@ if ($response->isSuccess()) {
     if (isset($_POST['submit'])) {
         //recoger los datos
         $nombre = trim($_POST['nombre']);
-        $asunto = trim($_POST['asunto']);
         $mail = trim($_POST['mail']);
+        $telefono = trim($_POST['telefono']);
         $mensaje = trim($_POST['mensaje']);
 
         //expresiones regulares
@@ -17,7 +17,7 @@ if ($response->isSuccess()) {
 
         $expr1_test = preg_match($exp_string, $nombre);
         //validación de todos los campos
-        if (empty($nombre) || empty($mail) || empty($mensaje) || empty($asunto)) {
+        if (empty($nombre) || empty($mail) || empty($mensaje) || empty($telefono)) {
             header("Location: ../index.html?faltan_valores=Los campos no pueden estar vacíos");
         }
 
@@ -28,17 +28,25 @@ if ($response->isSuccess()) {
             header("Location: ../index.html?error=Máximo 100 caracteres");
         }
 
-        //validación del campo asunto
-        elseif (strlen($asunto) > 50) {
-            header("Location: ../index.html?error=Máximo 50 caracteres");
+        //validación del campo teléfono
+        elseif (!is_numeric($telefono)) {
+            header("Location: ../index.html?error=Teléfono inválido - solo números");
         }
 
         //validación campo email 
         elseif (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             header("Location: ../index.html?error= Email no valido");
-        } elseif (strlen($mensaje) > 500) {
+        } 
+        
+        //validación campo mensaje
+        elseif (strlen($mensaje) > 500) {
             header("Location: ../index.html?error=Máximo 500 caracteres");
-        } else {
+        } 
+        
+        //sino envía el email
+        else {
+            //asunto
+            $asunto = "Mensaje desde la página web";
 
             //destinatario
             $destino = "juan_27angel@hotmail.com";
@@ -59,7 +67,8 @@ if ($response->isSuccess()) {
                 </p>
 					
 				<p style="font-size:20px;">
-					Puedes ponerte en contacto con <strong>' . $nombre . '</strong> al correo: <strong>' . $mail . ' </strong>
+                    Puedes ponerte en contacto con <strong>' . $nombre . '</strong> al correo: <strong>' . $mail . ' </strong>
+                    o al teléfono <strong>'. $telefono .'</strong>
 					
 				</p>
 		';
@@ -72,7 +81,7 @@ if ($response->isSuccess()) {
                 //Enviando autorespuesta
                 $pwf_header = "juan_27angel@hotmail.com\n"
                     .  "Reply-to: juan_27angel@hotmail.com \n";
-                $pwf_asunto = "SERKH Confirmación";
+                $pwf_asunto = "Solcof Confirmación";
                 $pwf_dirigido_a = "$mail";
                 $pwf_mensaje = "$nombre Gracias por dejarnos su mensaje desde nuestro sitio web \n"
                     . "Su mensaje ha sido recibido satisfactoriamente \n"
@@ -81,7 +90,7 @@ if ($response->isSuccess()) {
                     . "\n"
                     . "-----------------------------------------------------------------"
                     . "Favor de NO responder este e-mail ya que es generado Automaticamente.\n"
-                    . "Atte: SERKH - Mejores Practicas para Optimizar sus Procesos de Negocio. \n";
+                    . "Atte: Solcof - Soluciones Contables y Fiscales. \n";
                 @mail($pwf_dirigido_a, $pwf_asunto, $pwf_mensaje, $pwf_header);
             } else {
                 header("Location:../index.html?error=Inténtelo de nuevo en unos momentos");

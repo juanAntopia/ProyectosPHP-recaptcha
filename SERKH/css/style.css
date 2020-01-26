@@ -1,27 +1,31 @@
-
-
 body {
-		background: #ffffff;
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-		font-weight: 400;
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
 
 
 /*---------------------------------------
     Typorgraphy              
 -----------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
 }
 
-h3,h5 {
+h3,
+h5 {
   font-weight: 500;
 }
 
 h1 {
-    font-size: 40px;
-    letter-spacing: 2px;
+  font-size: 40px;
+  letter-spacing: 2px;
 }
 
 h2 {
@@ -34,14 +38,14 @@ h3 {
 }
 
 h5 {
-    letter-spacing: 1px;
-    padding-top: 10px;
+  letter-spacing: 1px;
+  padding-top: 10px;
 }
 
 p {
-    color: #707070;
-    font-size: 14px;
-    line-height: 24px;
+  color: #707070;
+  font-size: 14px;
+  line-height: 24px;
 }
 
 a {
@@ -57,7 +61,7 @@ a {
   margin-bottom: 32px;
 }
 
-#speakers, {
+#speakers {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -67,21 +71,32 @@ a {
 #players,
 #construccion,
 #register,
-#speakers
-{
+#speakers {
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
 
-
+/*animation*/
+.error-position {
+  padding: 20px;
+  height: auto;
+  width: 100%;
+  background: red;
+  position: fixed;
+  bottom: 0;
+  transition: all 2.5s ease-in;
+}
+/*//animation*/
 
 
 #program,
-#sponsors, 
-#contact,footer {
-    padding-top: 15rem;
-    padding-bottom: 15rem;
+#sponsors,
+#contact,
+footer {
+  padding-top: 15rem;
+  padding-bottom: 15rem;
 }
+
 #bps,
 
 #satic,
@@ -89,14 +104,16 @@ a {
 #hrfitness,
 #reclutamiento,
 #etchoice,
-#terminacion,#auditoria,
-#detail, footer {
-    padding-top: 40rem;
+#terminacion,
+#auditoria,
+#detail,
+footer {
+  padding-top: 40rem;
 }
 
 
 #detail,
-#speakers, 
+#speakers,
 #sponsors,
 #bps,
 #subtract,
@@ -112,41 +129,42 @@ footer {
 }
 
 #nosotros h1,
-#detail h1, #video h1,
+#detail h1,
+#video h1,
 #bps h1,
 #register h1,
 #venue h1,
 #auditoria h1,
 #reclutamiento h1,
-#contact h1, 
-#construccion h1 ,
+#contact h1,
+#construccion h1,
 #imbega h1,
 #etchoice h1,
 #terminacion h1,
-#hrfitness h1{
-    padding-bottom: 12px;
+#hrfitness h1 {
+  padding-bottom: 12px;
 }
 
 #intro .btn,
 #contact .btn {
-    background: transparent;
-    border: 2px solid #ffffff;
-    border-radius: 0px;
-    color: #ffffff;
-    font-weight: 600;
-    letter-spacing: 1px;
-    font-size: 12px;
-    padding: 14px 42px;
-    margin-top: 42px;
-    margin-right: 12px;
-    -webkit-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
+  background: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 0px;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 12px;
+  padding: 14px 42px;
+  margin-top: 42px;
+  margin-right: 12px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 #intro .btn-danger,
 #contact .btn-danger {
-    background: #f2545f;
-    border-color: transparent;
+  background: #f2545f;
+  border-color: transparent;
 }
 
 #contact .btn {
@@ -164,9 +182,9 @@ footer {
 }
 
 #intro .btn-default:hover {
-    background: #ffffff;
-    color: #333333;
-    border-color: transparent;
+  background: #ffffff;
+  color: #333333;
+  border-color: transparent;
 }
 
 .parallax-section {
@@ -198,29 +216,42 @@ footer {
   height: 50px;
   background-color: #00dcff;
   -webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
-          animation: sk-rotatePlane 1.2s infinite ease-in-out; }
+  animation: sk-rotatePlane 1.2s infinite ease-in-out;
+}
 
 @-webkit-keyframes sk-rotatePlane {
   0% {
     -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-            transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+
   50% {
     -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-            transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+
   100% {
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-            transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
 
 @keyframes sk-rotatePlane {
   0% {
     -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-            transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+
   50% {
     -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-            transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+
   100% {
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-            transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
 
 
 
@@ -228,70 +259,72 @@ footer {
     Navigation Links section              
 -----------------------------------------*/
 .custom-navbar {
-    margin-bottom: 0;
-    background-color: #101010;
+  margin-bottom: 0;
+  background-color: #101010;
 }
 
 .custom-navbar .navbar-brand {
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 3rem;
-    line-height: 40px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 40px;
 }
 
 .custom-navbar .nav li a {
-    color: #ddd;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    line-height: 40px;
-    transition: all 0.4s ease-in-out;
+  color: #ddd;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  line-height: 40px;
+  transition: all 0.4s ease-in-out;
 }
 
 .custom-navbar .nav li a:hover {
-    background: transparent;
-    color: #66ccff;
+  background: transparent;
+  color: #66ccff;
 }
 
-.custom-navbar .navbar-nav > li > a:hover,
-.custom-navbar .navbar-nav > li > a:focus {
+.custom-navbar .navbar-nav>li>a:hover,
+.custom-navbar .navbar-nav>li>a:focus {
   background-color: transparent;
 }
 
-.custom-navbar .nav li.active > a {
-    background-color: transparent;
-    color: #66ccff;
+.custom-navbar .nav li.active>a {
+  background-color: transparent;
+  color: #66ccff;
 }
 
 .custom-navbar .navbar-toggle {
-    border: none;
-    padding-top: 10px;
+  border: none;
+  padding-top: 10px;
 }
 
 .custom-navbar .navbar-toggle {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .custom-navbar .navbar-toggle .icon-bar {
-    background: #ffffff;
-    border-color: transparent;
+  background: #ffffff;
+  border-color: transparent;
 }
 
 @media(min-width:768px) {
-    .custom-navbar {
-        padding: 20px 0;
-        border-bottom: 0;
-        background: 0 0; 
-    }
-    .custom-navbar.top-nav-collapse {
-        background: #101010;
-        padding: 0;
-    }
-.custom-navbar .navbar-toggle .icon-bar {
+  .custom-navbar {
+    padding: 20px 0;
+    border-bottom: 0;
+    background: 0 0;
+  }
+
+  .custom-navbar.top-nav-collapse {
+    background: #101010;
+    padding: 0;
+  }
+
+  .custom-navbar .navbar-toggle .icon-bar {
     background: #ffffff;
     border-color: transparent;
-}
+  }
 
 }
 
@@ -301,21 +334,21 @@ footer {
     Intro section              
 -----------------------------------------*/
 #intro {
-    background: url('../images/799.jpg') 50% 0 repeat-y fixed;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
-    color: #ffffff;
-    display: -webkit-box;
-    display: -webkit-flex;
-     display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-     -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-    height: 100vh;
-    text-align: center;
+  background: url('../images/799.jpg') 50% 0 repeat-y fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
 }
 
 #intro h3 {
@@ -338,11 +371,11 @@ footer {
     Detail section              
 -----------------------------------------*/
 #detail {
-    background: url('../images/126.jpg') 50%;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed !important;
+  background: url('../images/126.jpg') 50%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed !important;
 }
 
 #detail .fa {
@@ -355,12 +388,12 @@ footer {
    Speakers section              
 -----------------------------------------*/
 #speakers {
-    background: #f9f9f9;
+  background: #f9f9f9;
 }
 
 #speakers h3 {
-    font-size: 18px;
-    margin-bottom: 0px;
+  font-size: 18px;
+  margin-bottom: 0px;
 }
 
 #speakers h6 {
@@ -375,16 +408,16 @@ footer {
 }
 
 #speakers .col-md-3 {
-    display: block;
-    width: 100%;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    margin-bottom: 22px;
+  display: block;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 #speakers .speakers-wrapper {
-    background: #ffffff;
-    padding-bottom: 22px;
+  background: #ffffff;
+  padding-bottom: 22px;
 }
 
 
@@ -393,8 +426,8 @@ footer {
    Program section              
 -----------------------------------------*/
 #program h4 {
-    color: #808080;
-    font-size: 12px;
+  color: #808080;
+  font-size: 12px;
 }
 
 #program h3 {
@@ -402,13 +435,13 @@ footer {
 }
 
 #program .program-divider {
-    border: 1px solid #f9f9f9;
-    margin-top: 32px;
-    margin-bottom: 42px;
+  border: 1px solid #f9f9f9;
+  margin-top: 32px;
+  margin-bottom: 42px;
 }
 
 #program span {
-    padding-right: 12px;
+  padding-right: 12px;
 }
 
 #program img {
@@ -418,11 +451,13 @@ footer {
 .nav-tabs {
   margin-bottom: 20px;
 }
-.nav-tabs > li {
+
+.nav-tabs>li {
   float: left;
   margin-bottom: -1px;
 }
-.nav-tabs > li > a {
+
+.nav-tabs>li>a {
   color: #000000;
   font-weight: 600;
   margin-right: 2px;
@@ -430,18 +465,21 @@ footer {
   border: none;
   border-radius: 0px;
 }
-.nav-tabs > li > a:hover {
+
+.nav-tabs>li>a:hover {
   background-color: transparent;
 }
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:hover,
-.nav-tabs > li.active > a:focus {
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:focus {
   color: #f2545f;
   cursor: default;
   background-color: transparent;
   border: 1px solid transparent;
   border-bottom-color: #999;
 }
+
 .tab-content {
   padding-top: 20px;
 }
@@ -452,11 +490,11 @@ footer {
     Regsiter section              
 -----------------------------------------*/
 #register {
-    background: url('../images/register-bg.jpg') 50% 0 repeat-y fixed;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
-    color: #ffffff;
+  background: url('../images/register-bg.jpg') 50% 0 repeat-y fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  color: #ffffff;
 }
 
 #register .form-control {
@@ -558,11 +596,11 @@ footer {
    Venue section              
 -----------------------------------------*/
 #venue {
-    background: url('../images/1819.jpg') 50% 0 repeat-y fixed;
-    background-size: cover;
-    background-position: center center;
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+  background: url('../images/1819.jpg') 50% 0 repeat-y fixed;
+  background-size: cover;
+  background-position: center center;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 
 #venue p {
@@ -585,9 +623,9 @@ footer {
    Contact section              
 -----------------------------------------*/
 #contact {
-    background: url('../images/contact-bg.jpg') 50% 0 repeat-y fixed;
-    background-size: cover;
-    background-position: center center;
+  background: url('../images/contact-bg.jpg') 50% 0 repeat-y fixed;
+  background-size: cover;
+  background-position: center center;
 }
 
 #contact .contact_des {
@@ -662,8 +700,8 @@ footer {
 }
 
 .go-top:hover {
-    background: #f2545f;
-    color: #ffffff;
+  background: #f2545f;
+  color: #ffffff;
 }
 
 
@@ -671,32 +709,32 @@ footer {
    Social icon             
 -----------------------------------------*/
 .social-icon {
-    position: relative;
-    padding: 0;
-    margin: 0;
+  position: relative;
+  padding: 0;
+  margin: 0;
 }
 
 .social-icon li {
-    display: inline-block;
-    list-style: none;
+  display: inline-block;
+  list-style: none;
 }
 
 .social-icon li a {
-    color: #666;
-    border-radius: 100px;
-    font-size: 16px;
-    text-decoration: none;
-    transition: all 0.4s ease-in-out;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    vertical-align: middle;
+  color: #666;
+  border-radius: 100px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .social-icon li a:hover {
-    background: #f2545f;
-    color: #ffffff;
+  background: #f2545f;
+  color: #ffffff;
 }
 
 
@@ -706,7 +744,9 @@ footer {
 -----------------------------------------*/
 @media (max-width: 980px) {
 
-  p {font-size: 13px;}
+  p {
+    font-size: 13px;
+  }
 
   .custom-navbar .navbar-brand {
     font-size: 2rem;
@@ -714,19 +754,21 @@ footer {
 
   .custom-navbar .nav li a {
     font-size: 11px;
-	line-height: 20px;
+    line-height: 20px;
   }
 
-  #intro { height: 65vh; }
+  #intro {
+    height: 65vh;
+  }
 
   #video iframe {
     margin-top: 42px;
   }
 
   #contact .contact_detail {
-  background: #ffffff;
-  padding: 10rem 3rem 10rem 5rem;
-}
+    background: #ffffff;
+    padding: 10rem 3rem 10rem 5rem;
+  }
 
 }
 
@@ -742,7 +784,7 @@ footer {
     padding-top: 32px;
   }
 
-  .nav-tabs > li > a {
+  .nav-tabs>li>a {
     font-size: 13px;
   }
 
@@ -768,72 +810,85 @@ footer {
 
 }
 
-.logointro {max-width: 50%;max-height: 50%}
-.bgblack{background-color: rgba(0,0,0,0.5);
+.logointro {
+  max-width: 50%;
+  max-height: 50%
 }
-.subsecc{color: #fff;
-text-align: left;}
+
+.bgblack {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.subsecc {
+  color: #fff;
+  text-align: left;
+}
 
 
-.subsecc2{color: #fff;
-text-align: left;
-padding-left:11%;}
-.subsecc2 h1{color: #fff;
-font-size: 90px !important;}
+.subsecc2 {
+  color: #fff;
+  text-align: left;
+  padding-left: 11%;
+}
+
+.subsecc2 h1 {
+  color: #fff;
+  font-size: 90px !important;
+}
 
 
 #bps {
-    background: url('../images/517.jpg') 50% 0 repeat-y fixed;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
+  background: url('../images/517.jpg') 50% 0 repeat-y fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
 }
 
 #satic {
-    background: url('../images/1667.jpg') 50% 0 repeat-y fixed;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
+  background: url('../images/1667.jpg') 50% 0 repeat-y fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
 }
 
 #reclutamiento {
-    background: url('../images/1819.jpg') 50% 0 repeat-y fixed;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
+  background: url('../images/1819.jpg') 50% 0 repeat-y fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
 }
 
 #imbega {
-    background: url('../images/61.jpg') 50% 0 repeat-y fixed;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
+  background: url('../images/61.jpg') 50% 0 repeat-y fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
 }
 
 #hrfitness {
-    background: url('../images/1837.jpg') 50% 0 repeat-y fixed;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
+  background: url('../images/1837.jpg') 50% 0 repeat-y fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
 }
 
 
 
-#etchoice{
-    background: url('../images/1044.jpg') 50% 0 repeat-y fixed;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
+#etchoice {
+  background: url('../images/1044.jpg') 50% 0 repeat-y fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
 }
 
-#terminacion{
-    background: url('../images/888.jpg') 50% 0 repeat-y fixed;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
+#terminacion {
+  background: url('../images/888.jpg') 50% 0 repeat-y fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
 }
 
-#auditoria{
+#auditoria {
   background: url('../images/1666.jpg') 50% 0 repeat-y fixed;
   -webkit-background-size: cover;
   background-size: cover;
@@ -841,109 +896,129 @@ font-size: 90px !important;}
 }
 
 
-.imagesi{
-    max-width: 100%;
-    height: auto;
+.imagesi {
+  max-width: 100%;
+  height: auto;
 }
 
-.advantage {padding-left: 5px;
-text-align: left;}
-.advantage li {list-style:none;
-text-align: left;
+.advantage {
+  padding-left: 5px;
+  text-align: left;
 }
 
-.advantage-right {padding-left: 5px;
-text-align: right;}
-.advantage-right li {list-style:none;
-text-align: right;
-}
-.curso li{padding-left: 5px;
-text-align: left;}
-
-.wh-paragraph{
-  color: #fff !important; 
-   text-shadow:2px 2px 4px  rgba(0,0,0,0.5);
+.advantage li {
+  list-style: none;
+  text-align: left;
 }
 
-.distinto{
+.advantage-right {
+  padding-left: 5px;
+  text-align: right;
+}
+
+.advantage-right li {
+  list-style: none;
+  text-align: right;
+}
+
+.curso li {
+  padding-left: 5px;
+  text-align: left;
+}
+
+.wh-paragraph {
+  color: #fff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.distinto {
   color: #01adef;
 }
 
 .tittle {
-padding-bottom: 20px;
-padding-top: 20px;
-text-align: left;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: left;
 }
+
 .tittle2 {
-padding-bottom: 20px;
-padding-top: 20px;
-text-align: right;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: right;
 }
 
-.fakediv{
-  height:80px;
+.fakediv {
+  height: 80px;
 }
 
-.fakediv2{
-  height:20px;
+.fakediv2 {
+  height: 20px;
 }
 
-.fakediv3{
-  height:80px;
+.fakediv3 {
+  height: 80px;
 }
 
-#players{
+#players {
   background-color: #003552;
 }
-.aplay{
+
+.aplay {
   margin-top: -20px;
 }
-.wh{
-color:#fff;
-}
-.blu{
-background-color:#003552;
-margin-bottom: 20px;
-    padding: 10px;
+
+.wh {
+  color: #fff;
 }
 
-.headin{
-      font-size: 14px;
-    line-height: 18px !important;
+.blu {
+  background-color: #003552;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.headin {
+  font-size: 14px;
+  line-height: 18px !important;
 
 }
 
-.pad{padding-left: 50px;
-     padding-right: 50px;
-       color: #707070;
-    font-size: 14px;
-    line-height: 30px !important;
+.pad {
+  padding-left: 50px;
+  padding-right: 50px;
+  color: #707070;
+  font-size: 14px;
+  line-height: 30px !important;
 }
 
-.tl{
-         color: #707070;
-    font-size: 16px;
-    line-height: 36px !important;
+.tl {
+  color: #707070;
+  font-size: 16px;
+  line-height: 36px !important;
 }
 
-.esquema img{max-width:100%;}
+.esquema img {
+  max-width: 100%;
+}
 
-.movil{padding-top: 20px;}
+.movil {
+  padding-top: 20px;
+}
 
-.desktop-text{
-  padding-left:11%;
+.desktop-text {
+  padding-left: 11%;
   width: 40%;
 }
 
-#googleMap{
-    width: 100%;
-    height: 330px;
-    margin-bottom: 50px;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+#googleMap {
+  width: 100%;
+  height: 330px;
+  margin-bottom: 50px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-footer{
+footer {
   padding-top: 0px;
 }

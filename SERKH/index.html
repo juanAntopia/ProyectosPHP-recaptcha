@@ -30,6 +30,7 @@
 <body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
 
 	<div id="app">
+
 		<!-- =========================
 			PRE LOADER       
 		============================= -->
@@ -408,11 +409,6 @@
 
 
 			<!----==================HR FITNESS Movil=====================-->
-
-
-
-
-
 
 			<section id="hrfitness" class="parallax-section subcontract hidden-xs hidden-sm">
 				<div class="col-md-12 col-xs-12 bgblack hidden-xs hidden-sm">
@@ -985,24 +981,21 @@
 
 						<div class="wow fadeInUp col-md-5 col-sm-5" data-wow-delay="1s">
 							<form action="validation/contact.php" method="post" @submit="checkform">
-								<p v-if="errors.length">
-									<b>Por favor, corrija el(los) siguiente(s) error(es):</b>
-									<ul>
-										<li v-for="error in errors">{{ error }}</li>
-									</ul>
-								</p>
 
 								<input name="nombre" class="form-control" id="nombre" placeholder="Nombre"
 									v-model="nombre">
-								
-								<input name="asunto" class="form-control" id="asunto" placeholder="Asunto" v-model="asunto">
 
-								<input name="mail" type="email" class="form-control" id="mail" placeholder="Correo Electronico" v-model="mail">
+								<input name="asunto" class="form-control" id="asunto" placeholder="Asunto"
+									v-model="asunto">
+
+								<input name="mail" type="email" class="form-control" id="mail"
+									placeholder="Correo Electronico" v-model="mail">
 
 								<textarea name="mensaje" rows="10" class="form-control" id="message"
 									placeholder="Mensaje" v-model="message"></textarea>
 
-								<div class="g-recaptcha" style="margin-top:15px; margin-bottom: 15px;" data-sitekey="6LcYHM8UAAAAAEIvzUV8BrhDdsWWjHkOr2a6837p"></div>
+								<div class="g-recaptcha" style="margin-top:15px; margin-bottom: 15px;"
+									data-sitekey="6LcYHM8UAAAAAEIvzUV8BrhDdsWWjHkOr2a6837p"></div>
 
 								<div class="col-md-offset-6 col-md-6 col-sm-offset-1 col-sm-10">
 									<button name="submit" type="submit" class="form-control" id="submit"
@@ -1046,6 +1039,13 @@
 					</div>
 				</div>
 			</footer>
+
+			<div class="error-position" v-if="errors.length">
+				<b>Por favor, corrija el(los) siguiente(s) error(es):</b>
+				<ul>
+					<li v-for="error in errors">{{ error }}</li>
+				</ul>
+			</div>
 
 
 			<!-- Back top -->

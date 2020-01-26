@@ -3,9 +3,9 @@ const app = new Vue({
     data:{
         errors: [],
         nombre: '',
-        asunto: '',
         mail: '',
-        message: ''
+        telefono: '',
+        mensaje: ''
     },
     methods:{
         
@@ -14,7 +14,7 @@ const app = new Vue({
 
             this.errors = [];
 
-            if(this.nombre && this.asunto && this.mail && this.message && recaptcha_response_value){
+            if(this.nombre && this.mail && this.telefono && this.mensaje && recaptcha_response_value){
                 return true;
             }
 
@@ -30,19 +30,19 @@ const app = new Vue({
                 this.errors.push('Solo letras en campo *nombre');
             }
 
-            if(!this.asunto){
-                this.errors.push('El asunto es obligatorio');
-            }
-
-            if(!this.mail){
+            if (!this.mail) {
                 this.errors.push('EL email es obligatorio');
-            }
-            
-            if(!this.validEmail(this.mail)){
+            }else if (!this.validEmail(this.mail)) {
                 this.errors.push('El email no es válido');
             }
 
-            if(!this.message){
+            if(!this.telefono){
+                this.errors.push('El teléfono es obligatorio');
+            }else if(!this.validTelefono(this.telefono)){
+                this.errors.push('Campo solo para números');
+            }
+
+            if(!this.mensaje){
                 this.errors.push('El mensaje es obligatorio');
             }
 
@@ -54,11 +54,15 @@ const app = new Vue({
         },
         validEmail: function (email) {
             var expr = /.+@.+\..+/;
-            return expr.test(email)
+            return expr.test(email);
         },
         validNombre: function (nombre) {
             var expr = /^[a-zA-Z-ñáéíóú ]*$/;
-            return expr.test(nombre)
+            return expr.test(nombre);
         },
+        validTelefono: function(telefono){
+            var expr = /^[0-9]*$/;
+            return expr.test(telefono);
+        }
     }
 });
